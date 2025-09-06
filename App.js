@@ -3,7 +3,8 @@ import Nav from './components/Nav'
 import Books from './pages/Books';
 import Home from './pages/Home';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
-
+import { books } from "./data";
+import BookInfo from './pages/BookInfo';
 
 
 function App() {
@@ -12,8 +13,9 @@ function App() {
       <div className="App">
           <Nav />
         <Routes>
-          <Route path='/' exact Component={Home}/>
-          <Route path='/books' Component={Books}/>
+          <Route path='/' element={<Home />} />
+          <Route path='/books' element={<Books books={books}/>} />
+          <Route path='/books/1' element={<BookInfo books={books}/>} />
         </Routes>
           <Footer />
       </div>
